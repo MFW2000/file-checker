@@ -12,24 +12,23 @@ import java.util.Scanner;
  */
 public class App {
     /**
-     * Application entry point and input handler.
+     * Application entry point and output handler.
      * @param args the command line arguments as {@code String[]}
      **/
     public static void main(String[] args) {
         System.out.println("Welcome to File Checker.");
+        System.out.println("You need to provide some details before we get started.");
         System.out.println();
 
-        System.out.print("Path of the directory to check for: ");
+        System.out.println("First we need the path of the directory where the files should be inspected.");
+        System.out.println("For example, on Windows this could be 'C:\\Users\\<username>\\Documents'.");
+        System.out.print("Directory path: ");
         String path = promptValidPathInput();
 
-        // TODO: Remove temporary test output
-        System.out.println("Path: " + path);
-
-        System.out.print("Character to check for: ");
+        System.out.println("We also need a character to filter the files by.");
+        System.out.println("For example, list all files containing an '_'.");
+        System.out.print("Character: ");
         char character = promptValidCharacterInput();
-
-        // TODO: Remove temporary test output
-        System.out.println("Character: " + character);
     }
 
     /**
