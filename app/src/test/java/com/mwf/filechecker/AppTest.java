@@ -29,7 +29,7 @@ class AppTest {
             App.readPathInput();
         });
 
-        String expectedMessage = "Invalid input, the provided path is not valid!";
+        String expectedMessage = "Invalid input, the provided path is not valid.";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -42,7 +42,7 @@ class AppTest {
             App.readPathInput();
         });
 
-        String expectedMessage = "Invalid input, the provided path is not valid!";
+        String expectedMessage = "Invalid input, the provided path is not valid.";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -59,7 +59,7 @@ class AppTest {
             App.readPathInput();
         });
 
-        String expectedMessage = "Invalid input, the provided path is not valid!";
+        String expectedMessage = "Invalid input, the provided path is not valid.";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -80,7 +80,7 @@ class AppTest {
             App.readCharacterInput();
         });
 
-        String expectedMessage = "Invalid input, the provided input is not a single character!";
+        String expectedMessage = "Invalid input, the provided input is not a single character.";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -93,7 +93,7 @@ class AppTest {
             App.readCharacterInput();
         });
 
-        String expectedMessage = "Invalid input, the provided input is not a single character!";
+        String expectedMessage = "Invalid input, the provided input is not a single character.";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));

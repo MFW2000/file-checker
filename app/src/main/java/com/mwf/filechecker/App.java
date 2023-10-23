@@ -1,10 +1,12 @@
 package com.mwf.filechecker;
 
+import com.mwf.filechecker.exception.FileCheckerException;
 import com.mwf.filechecker.exception.InvalidInputException;
 
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -29,6 +31,31 @@ public class App {
         System.out.println("For example, list all files containing an '_'.");
         System.out.print("Character: ");
         char character = promptValidCharacterInput();
+
+        System.out.println();
+        printFilesContainingCharacter(path, character);
+
+        System.out.println();
+        System.out.println("Thank you for using File Checker.");
+    }
+
+    /**
+     * Prints all files that contain the given character inside the folder of the given path.
+     * @param path of the folder where the files should be inspected as {@code String}
+     * @param character to filter the files by as {@code char}
+     */
+    public static void printFilesContainingCharacter(String path, char character) {
+        try {
+            List<String> foundFiles = FileChecker.getFilesContainingCharacter(path, character);
+
+            System.out.println("All files containing '" + character + "':");
+
+            for (String file : foundFiles) {
+                System.out.println(file);
+            }
+        } catch (FileCheckerException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -56,7 +83,7 @@ public class App {
 
         // Check if the input is a valid path and if the directory exists
         if (isInvalidDirectoryPath(input)) {
-            throw new InvalidInputException("Invalid input, the provided path is not valid!");
+            throw new InvalidInputException("Invalid input, the provided path is not valid.");
         }
 
         return input;
@@ -87,7 +114,7 @@ public class App {
 
         // Check if the input is empty or contains more than one character
         if (input.length() != 1 || input.isBlank()) {
-            throw new InvalidInputException("Invalid input, the provided input is not a single character!");
+            throw new InvalidInputException("Invalid input, the provided input is not a single character.");
         }
 
         return input.charAt(0);
