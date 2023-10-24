@@ -3,18 +3,20 @@ package com.mwf.filechecker;
 import com.mwf.filechecker.exception.InvalidInputException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+// TODO: Add test for paths containing accented characters
+
 class AppTest {
     @Test
     public void testValidPathInput() throws IOException, InvalidInputException {
         // Create temporary directory and get its path
-        String input = String.valueOf(Files.createTempDirectory("directory"));
+        String input = Files.createTempDirectory("test").toString();
 
         provideInput(input);
         String returnValue = App.readPathInput();
@@ -38,7 +40,7 @@ class AppTest {
     @Test
     public void testNonExistingPathInput() {
         Exception exception = assertThrows(InvalidInputException.class, () -> {
-            provideInput("/not/a/path");
+            provideInput("/not/an/actual/path");
             App.readPathInput();
         });
 
@@ -50,9 +52,9 @@ class AppTest {
 
     @Test
     public void testFileAsInvalidPathInput() throws IOException {
-        // Create temporary directory, file, and get its path
-        Path tempDirectory = Files.createTempDirectory("directory");
-        String input = String.valueOf(Files.createTempFile(tempDirectory, "test", ".txt"));
+        // Create temporary directory and file
+        Path tempDirectory = Files.createTempDirectory("test");
+        String input = Files.createTempFile(tempDirectory, "test", ".txt").toString();
 
         Exception exception = assertThrows(InvalidInputException.class, () -> {
             provideInput(input);

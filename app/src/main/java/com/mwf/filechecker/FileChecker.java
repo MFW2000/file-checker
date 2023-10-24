@@ -6,6 +6,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: Convert java.io.File to java.nio.file.*
+
 /**
  * Class containing file checking functionalities.
  */

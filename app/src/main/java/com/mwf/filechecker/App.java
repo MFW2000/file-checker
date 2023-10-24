@@ -3,11 +3,12 @@ package com.mwf.filechecker;
 import com.mwf.filechecker.exception.FileCheckerException;
 import com.mwf.filechecker.exception.InvalidInputException;
 
-import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.Path;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
 import java.util.List;
 import java.util.Scanner;
+
+// TODO: Fix file name printing for accented characters
 
 /**
  * Main class for the application.
@@ -37,6 +38,8 @@ public class App {
 
         System.out.println();
         System.out.println("Thank you for using File Checker.");
+        System.out.println("Press the 'Enter' key to exit the application.");
+        readString();
     }
 
     /**
@@ -51,7 +54,7 @@ public class App {
             System.out.println("All files containing '" + character + "':");
 
             for (String file : foundFiles) {
-                System.out.println(file);
+                System.out.println("• " + file);
             }
         } catch (FileCheckerException e) {
             System.out.println(e.getMessage());
@@ -125,7 +128,7 @@ public class App {
 
         // Attempt to convert the given path to a path object; the path is invalid otherwise
         try {
-            directoryPath = Path.of(path);
+            directoryPath = Paths.get(path);
         } catch (InvalidPathException e) {
             return true;
         }
@@ -135,7 +138,7 @@ public class App {
     }
 
     private static String readString() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         return scanner.nextLine();
     }
 }
