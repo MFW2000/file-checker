@@ -8,8 +8,6 @@ import java.nio.file.*;
 import java.util.List;
 import java.util.Scanner;
 
-// TODO: Fix file name printing for accented characters
-
 /**
  * Main class for the application.
  */

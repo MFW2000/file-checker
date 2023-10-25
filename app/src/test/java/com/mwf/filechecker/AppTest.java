@@ -10,8 +10,6 @@ import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// TODO: Add test for paths containing accented characters
-
 class AppTest {
     @Test
     public void testValidPathInput() throws IOException, InvalidInputException {
