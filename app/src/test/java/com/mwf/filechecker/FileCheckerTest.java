@@ -33,7 +33,15 @@ public class FileCheckerTest {
         expectedResult.add(file1.getName());
         expectedResult.add(file2.getName());
 
+        // TODO: Remove temporary test print
+        System.out.println("Expected result:");
+        expectedResult.forEach(System.out::println);
+
         List<String> actualResult = FileChecker.getFilesContainingCharacter(directoryPath, character);
+
+        // TODO: Remove temporary test print
+        System.out.println("Actual result:");
+        actualResult.forEach(System.out::println);
 
         assertIterableEquals(expectedResult, actualResult);
     }
