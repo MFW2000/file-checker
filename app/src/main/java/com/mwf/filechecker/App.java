@@ -3,13 +3,16 @@ package com.mwf.filechecker;
 import com.mwf.filechecker.exception.FileCheckerException;
 import com.mwf.filechecker.exception.InvalidInputException;
 
-import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
 
 /**
- * Main class for the application.
+ * Main class of the application.
  */
 public class App {
     /**
@@ -19,6 +22,8 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Welcome to File Checker.");
         System.out.println("You need to provide some details before we get started.");
+        System.out.println("Please keep in mind that your CLI might not be set to work with accented characters.");
+
         System.out.println();
 
         System.out.println("First we need the path of the directory where the files should be inspected.");
@@ -26,15 +31,19 @@ public class App {
         System.out.print("Directory path: ");
         String path = promptValidPathInput();
 
+        System.out.println();
+
         System.out.println("We also need a character to filter the files by.");
         System.out.println("For example, list all files containing an '_'.");
         System.out.print("Character: ");
         char character = promptValidCharacterInput();
 
         System.out.println();
+
         printFilesContainingCharacter(path, character);
 
         System.out.println();
+
         System.out.println("Thank you for using File Checker.");
         System.out.println("Press the 'Enter' key to exit the application.");
         readString();
@@ -52,7 +61,7 @@ public class App {
             System.out.println("All files containing '" + character + "':");
 
             for (String file : foundFiles) {
-                System.out.println("• " + file);
+                System.out.println("* " + file);
             }
         } catch (FileCheckerException e) {
             System.out.println(e.getMessage());
@@ -83,7 +92,7 @@ public class App {
         String input = readString();
 
         // Check if the input is a valid path and if the directory exists
-        if (isInvalidDirectoryPath(input)) {
+        if (isInvalidDirectoryPath(input) || input.isBlank()) {
             throw new InvalidInputException("Invalid input, the provided path is not valid.");
         }
 
@@ -136,7 +145,7 @@ public class App {
     }
 
     private static String readString() {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 }

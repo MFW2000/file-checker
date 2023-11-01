@@ -37,6 +37,10 @@ public class FileChecker {
             }
         }
 
+        if (filesContainingCharacter.isEmpty()) {
+            throw new FileCheckerException("There are no files that contain the given character.");
+        }
+
         return filesContainingCharacter;
     }
 }
