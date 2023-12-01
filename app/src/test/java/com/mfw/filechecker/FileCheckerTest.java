@@ -1,6 +1,6 @@
-package com.mwf.filechecker;
+package com.mfw.filechecker;
 
-import com.mwf.filechecker.exception.FileCheckerException;
+import com.mfw.filechecker.exception.FileCheckerException;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

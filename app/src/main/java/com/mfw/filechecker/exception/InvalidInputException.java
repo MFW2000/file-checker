@@ -1,4 +1,4 @@
-package com.mwf.filechecker.exception;
+package com.mfw.filechecker.exception;
 
 /**
  * Thrown to indicate that invalid input was provided.
@@ -6,6 +6,7 @@ package com.mwf.filechecker.exception;
 public class InvalidInputException extends Exception {
     /**
      * Constructs an {@code InvalidInputException} with the specified detail message.
+     *
      * @param message the detail message
      */
     public InvalidInputException(String message) {

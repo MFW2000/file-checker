@@ -1,9 +1,8 @@
-package com.mwf.filechecker;
+package com.mfw.filechecker;
 
-import com.mwf.filechecker.exception.FileCheckerException;
-import com.mwf.filechecker.exception.InvalidInputException;
+import com.mfw.filechecker.exception.FileCheckerException;
+import com.mfw.filechecker.exception.InvalidInputException;
 
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;

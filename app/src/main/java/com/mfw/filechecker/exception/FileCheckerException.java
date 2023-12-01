@@ -1,4 +1,4 @@
-package com.mwf.filechecker.exception;
+package com.mfw.filechecker.exception;
 
 /**
  * Thrown to indicate that something went wrong with a certain {@code FileChecker} method.
@@ -6,6 +6,7 @@ package com.mwf.filechecker.exception;
 public class FileCheckerException extends Exception {
     /**
      * Constructs an {@code FileCheckerException} with the specified detail message.
+     *
      * @param message the detail message
      */
     public FileCheckerException(String message) {
