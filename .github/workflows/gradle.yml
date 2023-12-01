@@ -21,7 +21,7 @@ jobs:
       - name: Build application
         run: ./gradlew build
       - name: Archive test results
-        uses: actions/upload-artfact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: unit-test-report
           path: app/build/reports/tests/test/index.html
