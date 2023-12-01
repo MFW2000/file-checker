@@ -36,7 +36,11 @@ public class FileCheckerTest {
         List<String> actualResult = FileChecker.getFilesContainingCharacter(directoryPath, character);
 
         // TODO: Remove after fixing workflow failure
+        System.out.println("Actual result:");
         System.out.println(actualResult);
+
+        System.out.println("Expected result:");
+        System.out.println(expectedResult);
 
         assertIterableEquals(expectedResult, actualResult);
     }
