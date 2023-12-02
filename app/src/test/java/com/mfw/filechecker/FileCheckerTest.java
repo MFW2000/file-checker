@@ -35,6 +35,10 @@ public class FileCheckerTest {
 
         List<String> actualResult = FileChecker.getFilesContainingCharacter(directoryPath, character);
 
+        // Order the result to assure correct order
+        expectedResult.sort(String.CASE_INSENSITIVE_ORDER);
+        actualResult.sort(String.CASE_INSENSITIVE_ORDER);
+
         // TODO: Remove after fixing workflow failure
         System.out.println("Actual result:");
         System.out.println(actualResult);
