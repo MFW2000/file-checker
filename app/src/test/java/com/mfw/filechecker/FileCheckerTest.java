@@ -35,15 +35,9 @@ public class FileCheckerTest {
 
         List<String> actualResult = FileChecker.getFilesContainingCharacter(directoryPath, character);
 
-        // Order the result to assure correct order
+        // Order the result to assure correct order of both list that will be compared
         expectedResult.sort(String.CASE_INSENSITIVE_ORDER);
         actualResult.sort(String.CASE_INSENSITIVE_ORDER);
-
-        // TODO: Remove after fixing workflow failure
-        System.out.println("Actual result:");
-        System.out.println(actualResult);
-        System.out.println("Expected result:");
-        System.out.println(expectedResult);
 
         assertIterableEquals(expectedResult, actualResult);
     }
