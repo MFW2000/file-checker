@@ -20,9 +20,9 @@ jobs:
         run: chmod +x ./gradlew
       - name: Build application
         run: ./gradlew build
-        continue-on-error: true
       - name: Archive test results
         uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: unit-test-report
           path: app/build/reports/tests/test/
