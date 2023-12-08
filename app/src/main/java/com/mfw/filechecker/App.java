@@ -16,8 +16,9 @@ import java.util.Scanner;
 public class App {
     /**
      * Application entry point and output handler.
-     * @param args the command line arguments as {@code String[]}
-     **/
+     *
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         System.out.println("Welcome to File Checker.");
         System.out.println("You need to provide some details before we get started.");
@@ -50,8 +51,9 @@ public class App {
 
     /**
      * Prints all files that contain the given character inside the folder of the given path.
-     * @param path of the folder where the files should be inspected as {@code String}
-     * @param character to filter the files by as {@code char}
+     *
+     * @param path of the folder where the files should be inspected
+     * @param character to filter the files by
      */
     public static void printFilesContainingCharacter(String path, char character) {
         try {
@@ -69,7 +71,8 @@ public class App {
 
     /**
      * Prompts the user to input a valid directory path until a valid directory path is provided.
-     * @return valid directory path as {@code String}
+     *
+     * @return valid directory path
      */
     public static String promptValidPathInput() {
         while (true) {
@@ -84,7 +87,8 @@ public class App {
 
     /**
      * Reads the user-provided input and validates its format as a valid directory path.
-     * @return valid user-provided path as {@code String}
+     *
+     * @return valid user-provided path
      * @throws InvalidInputException if the user-provided input is invalid
      */
     public static String readPathInput() throws InvalidInputException {
@@ -100,7 +104,8 @@ public class App {
 
     /**
      * Prompts the user to input a character until a valid character is provided.
-     * @return valid character as {@code char}
+     *
+     * @return valid character
      */
     private static char promptValidCharacterInput() {
         while (true) {
@@ -115,7 +120,8 @@ public class App {
 
     /**
      * Reads the user-provided input and validates its format as a single character.
-     * @return valid user-provided character as {@code char}
+     *
+     * @return valid user-provided character
      * @throws InvalidInputException if the user-provided input is invalid
      */
     public static char readCharacterInput() throws InvalidInputException {

@@ -12,9 +12,10 @@ import java.util.List;
 public class FileChecker {
     /**
      * Gets a list of all files that contain the given character from the given directory path.
-     * @param directoryPath of the folder where the files should be inspected as {@code String}
-     * @param character to filter the files by as {@code char}
-     * @return list of filtered files by character as {@code List<String>}
+     *
+     * @param directoryPath of the folder where the files should be inspected
+     * @param character to filter the files by
+     * @return list of filtered files by character
      * @throws FileCheckerException if the given directory is invalid or does not contain any files
      */
     public static List<String> getFilesContainingCharacter(String directoryPath, char character)
